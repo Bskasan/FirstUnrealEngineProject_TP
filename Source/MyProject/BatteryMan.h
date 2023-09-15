@@ -4,12 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+
 // For Camera Component
 #include "Camera/CameraComponent.h"
+
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/Controller.h"
+#include "GameFramework/SpringArmComponent.h"
+
+#include "BluePrint/UserWidget.h"
+
 #include "BatteryMan.generated.h"
 
 
@@ -20,9 +27,16 @@ class MYPROJECT_API ABatteryMan : public ACharacter
 {
 	GENERATED_BODY()
 
+
 public:
 	// Sets default values for this character's properties
 	ABatteryMan();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+	UCameraComponent* FollowCamera;
 
 protected:
 	// Called when the game starts or when spawned
